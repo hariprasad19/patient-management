@@ -26,3 +26,9 @@ server:
 logging:
   level:
     root: info
+
+billing:
+  service:
+    address: localhost
+    grpc:
+      port: 9001
