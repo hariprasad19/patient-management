@@ -1,6 +1,22 @@
 spring:
   application:
     name: patient-service
+  kafka:
+    producer:
+      key-serialzer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+
+server:
+  port: 4000
+logging:
+  level:
+    root: info
+
+billing:
+  service:
+    address: localhost
+    grpc:
+      port: 9001
 
 #UNCOMMENT TO USE IN LOCAL WITHOUT DOCKER
 #  h2:
@@ -20,15 +36,3 @@ spring:
 #  sql:
 #    init:
 #      mode: always
-
-server:
-  port: 4000
-logging:
-  level:
-    root: info
-
-billing:
-  service:
-    address: localhost
-    grpc:
-      port: 9001
