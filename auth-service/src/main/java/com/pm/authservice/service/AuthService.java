@@ -2,6 +2,7 @@ package com.pm.authservice.service;
 
 import com.pm.authservice.dto.LoginRequestDTO;
 import com.pm.authservice.util.JwtUtil;
+import io.jsonwebtoken.JwtException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,4 +26,12 @@ public class AuthService {
 
     }
 
+    public boolean validateToken(String token) {
+        try{
+            jwtUtil.validateToken(token);
+        }catch(JwtException e){
+            return false;
+        }
+        return true;
+    }
 }
